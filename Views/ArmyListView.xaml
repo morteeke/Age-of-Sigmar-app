@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Age_of_Sigmar_app.Views.ArmyListView"
+             xmlns:viewmodel="clr-namespace:Age_of_Sigmar_app.ViewModels"
+             x:DataType="viewmodel:ArmyListViewModel"
+             xmlns:model="clr-namespace:Age_of_Sigmar_app.Models"
+             Title="{Binding Title}">
+
+    <VerticalStackLayout Spacing="15" Margin="10">
+        <CollectionView ItemsSource="{Binding ArmyList}" MaximumHeightRequest="450">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Army">
+                    <Frame BorderColor="White" Margin="0,0,0,5">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ArmyListViewModel}},Path=GoToArmyViewCommand}"/>
+                        </Frame.GestureRecognizers>
+                        <Grid RowDefinitions="20,20,20" ColumnDefinitions="*,*" RowSpacing="5">
+                            <Label Text="{Binding Name}" Grid.ColumnSpan="2" HorizontalOptions="Center" TextDecorations="Underline"/>
+                            <Label Text="Stormcast Eternals" Grid.Row="1"/>
+                            <Label Text="Hammers of Sigmar" Grid.Row="2"/>
+                            <Label Text="Points: 1500" Grid.Column="1" Grid.Row="1"/>
+                            <Label Text="W/L: 1/3" Grid.Column="1" Grid.Row="2"/>
+                        </Grid>
+                    </Frame>
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        
+        <Button Text="New Army" Command="{Binding GoToCreateArmyViewCommand}" IsEnabled="{Binding IsNotBusy}"/>
+    </VerticalStackLayout>
+</ContentPage>

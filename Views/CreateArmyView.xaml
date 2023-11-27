@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Age_of_Sigmar_app.Views.CreateArmyView"
+             xmlns:viewmodel="clr-namespace:Age_of_Sigmar_app.ViewModels"
+             x:DataType="viewmodel:ArmyListViewModel"
+             Title="CreateArmyView">
+    <VerticalStackLayout Padding="10" Spacing="5">
+        <Entry Placeholder="Name" Text="{Binding Army.Name}"/>
+        <Picker Title="Select a faction">
+            <Picker.Items>
+                <x:String>Stormcast Eternals</x:String>
+                <x:String>Slaanesh</x:String>
+                <x:String>Slaves to Darkness</x:String>
+            </Picker.Items>
+        </Picker>
+        <Button Text="Save" Command="{Binding SaveArmyCommand}"/>
+    </VerticalStackLayout>
+</ContentPage>
