@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Age_of_Sigmar_app.Views.ChooseAllegianceView"
+             xmlns:viewmodel="clr-namespace:Age_of_Sigmar_app.ViewModels"
+             x:DataType="viewmodel:ArmyListViewModel"
+             Title="ChooseAllegianceView">
+    <VerticalStackLayout>
+        <Frame>
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding GoToCreateArmyViewCommand}"/>
+            </Frame.GestureRecognizers>
+            <Label Text="Stormcast Eternals"/>
+        </Frame>
+
+    </VerticalStackLayout>
+</ContentPage>

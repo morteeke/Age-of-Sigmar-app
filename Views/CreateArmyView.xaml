@@ -7,11 +7,10 @@
              Title="CreateArmyView">
     <VerticalStackLayout Padding="10" Spacing="5">
         <Entry Placeholder="Name" Text="{Binding Army.Name}"/>
-        <Picker Title="Select a faction">
+        <Picker Title="Select your sub-faction" SelectedItem="{Binding Army.SubFaction}">
             <Picker.Items>
-                <x:String>Stormcast Eternals</x:String>
-                <x:String>Slaanesh</x:String>
-                <x:String>Slaves to Darkness</x:String>
+                <x:String>Hammers of Sigmar</x:String>
+                <x:String>Hallowed Knights</x:String>
             </Picker.Items>
         </Picker>
         <Button Text="Save" Command="{Binding SaveArmyCommand}"/>

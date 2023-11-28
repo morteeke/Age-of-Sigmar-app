@@ -8,7 +8,8 @@ public partial class AppShell : Shell
 	{
 		InitializeComponent();
 
-		Routing.RegisterRoute(nameof(ArmyListView), typeof(ArmyListView));
-		Routing.RegisterRoute(nameof(CreateArmyView), typeof(CreateArmyView));
-	}
+		//Routing.RegisterRoute(nameof(ArmyListView), typeof(ArmyListView));
+        Routing.RegisterRoute(nameof(ChooseAllegianceView), typeof(ChooseAllegianceView));
+        Routing.RegisterRoute(nameof(CreateArmyView), typeof(CreateArmyView)); //nameof(ChooseAllegianceView)+"/"+
+    }
 }

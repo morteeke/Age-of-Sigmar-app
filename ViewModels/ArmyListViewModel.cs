@@ -2,18 +2,16 @@
 using Age_of_Sigmar_app.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Age_of_Sigmar_app.ViewModels
 {
     public partial class ArmyListViewModel:BaseViewModel
     {
+        [ObservableProperty]
+        string allegiance;
+
         [ObservableProperty]
         Army army;
 
@@ -37,13 +35,19 @@ namespace Age_of_Sigmar_app.ViewModels
         }
 
         [RelayCommand]
-        public async Task GoToArmyView()
+        public void GoToChooseAllegianceView()
+        {
+            Shell.Current.GoToAsync(nameof(ChooseAllegianceView), true);
+        }
+
+        [RelayCommand]
+        public void GoToArmyView()
         {
             Debug.WriteLine("GO TO ARMY DETAIL PAGE");
         }
 
         [RelayCommand]
-        public async Task SaveArmyAsync()
+        public async Task SaveArmy()
         {
             if(Army == null)
             {
@@ -51,7 +55,7 @@ namespace Age_of_Sigmar_app.ViewModels
             }
 
             ArmyList.Add(Army);
-            await GoBackAsync();
+            await Shell.Current.GoToAsync("../..", true);   //Title changes but doesn't show right view 'ArmyListView'
         }
     }
 }

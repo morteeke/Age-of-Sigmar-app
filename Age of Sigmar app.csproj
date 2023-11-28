@@ -59,6 +59,9 @@
 	  <MauiXaml Update="Views\ArmyView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\ChooseAllegianceView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\CreateArmyView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
