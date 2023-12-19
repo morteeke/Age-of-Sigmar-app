@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Age_of_Sigmar_app.Views.PathToGlorySummaryView"
+             xmlns:viewmodels="clr-namespace:Age_of_Sigmar_app.ViewModels"
+             x:DataType="viewmodels:PathToGloryViewModel"
+             xmlns:models="clr-namespace:Age_of_Sigmar_app.Models"
+             Title="Path to Glory">
+
+    <VerticalStackLayout Padding="10">
+        <Label 
+            Text="Summary"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontFamily="TitleFont"
+            FontSize="26"/>
+
+        <Border Margin="10" 
+                    Padding="20"
+                    MinimumHeightRequest="600">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="20,20,20,20"/>
+            </Border.StrokeShape>
+
+            
+            <CollectionView ItemsSource="{Binding CampaignList}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Campaign">
+                        
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!--<ScrollView>
+                <VerticalStackLayout>
+                    <Border Padding="10">
+                        <Grid RowDefinitions="*,*,*" 
+                              ColumnDefinitions="*,*"
+                              RowSpacing="5">
+                            
+                            <Label Text="Campaign Name"
+                                   Grid.ColumnSpan="2"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   HorizontalOptions="Center"
+                                   FontFamily="TitleFont"
+                                   Margin="0,0,0,10"/>
+                            
+                            <Label Text="Slaves to Darkness"
+                                   Grid.Row="1"
+                                   Grid.Column="0"/>
+                            
+                            <Label Text="Realm"
+                                   Grid.Row="1"
+                                   Grid.Column="1"/>
+                            
+                            <Label Text="Chaos Undivided"
+                                   Grid.Row="2"
+                                   Grid.Column="0"/>
+
+                            <Label Text="Size: 600"
+                                   Grid.Row="2"
+                                   Grid.Column="1"/>
+
+
+                        </Grid>
+                    </Border>
+                </VerticalStackLayout>
+            </ScrollView>-->
+            
+
+        </Border>
+
+        <Button Text="New Campaign"
+                Command="{Binding GoToNewCampaignCommand}"/>
+
+    </VerticalStackLayout>
+
+</ContentPage>

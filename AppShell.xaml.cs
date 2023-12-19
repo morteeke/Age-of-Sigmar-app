@@ -11,5 +11,8 @@ public partial class AppShell : Shell
 		//Routing.RegisterRoute(nameof(ArmyListView), typeof(ArmyListView));
         Routing.RegisterRoute(nameof(ChooseAllegianceView), typeof(ChooseAllegianceView));
         Routing.RegisterRoute(nameof(CreateArmyView), typeof(CreateArmyView)); //nameof(ChooseAllegianceView)+"/"+
+        Routing.RegisterRoute(nameof(PathToGlorySummaryView), typeof(PathToGlorySummaryView));
+        Routing.RegisterRoute(nameof(NewCampaignIndexView), typeof(NewCampaignIndexView));
+        Routing.RegisterRoute(nameof(NewCampaignSubfactionView), typeof(NewCampaignSubfactionView));
     }
 }

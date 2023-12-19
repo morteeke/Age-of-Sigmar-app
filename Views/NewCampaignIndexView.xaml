@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Age_of_Sigmar_app.Views.NewCampaignIndexView"
+             xmlns:viewmodels="clr-namespace:Age_of_Sigmar_app.ViewModels"
+             x:DataType="viewmodels:PathToGloryViewModel"
+             xmlns:apimodels="clr-namespace:Age_of_Sigmar_app.Models.ApiModels"
+             Title="NewCampaignIndexView">
+    <ScrollView>
+        <VerticalStackLayout Padding="10">
+
+            <CollectionView ItemsSource="{Binding AllegianceList}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="apimodels:Allegiance">
+                        <Border 
+                        MinimumHeightRequest="100"
+                        StrokeThickness="3"
+                        Stroke="black"
+                        Padding="5">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:PathToGloryViewModel}}, Path=GoToNewCampaignSubfactionCommand}"
+                                    CommandParameter="{Binding .}"/>    
+                            </Border.GestureRecognizers>
+                            <VerticalStackLayout Spacing="5">
+                                <Label 
+                        Text="{Binding name}"
+                        HorizontalOptions="Center"
+                        FontSize="16"/>
+                                <Image 
+                        Source="stormcast_eternals_banner"
+                        MaximumHeightRequest="150"/>
+
+                                <Label 
+                        Text="{Binding description}"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!--<Border 
+            MinimumHeightRequest="100"
+            StrokeThickness="3"
+            Stroke="black"
+            Padding="5">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding GoToNewCampaignSubfactionCommand}"
+                    CommandParameter="Stormcast Eternals"/>
+            </Border.GestureRecognizers>
+            <VerticalStackLayout Spacing="5">
+                <Label 
+                    Text="Stormcast Eternals"
+                    HorizontalOptions="Center"
+                    FontSize="16"/>
+                <Image 
+                    Source="stormcast_eternals_banner"
+                    MaximumHeightRequest="150"/>
+                
+                <Label 
+                    Text="The holy army of Sigmar"/>
+            </VerticalStackLayout>
+        </Border>
+
+        <Border 
+            MinimumHeightRequest="100"
+            StrokeThickness="3"
+            Stroke="black"
+            Padding="5">
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer
+                    Command="{Binding GoToNewCampaignSubfactionCommand}"
+                    CommandParameter="Slaves to Darkness"/>
+            </Border.GestureRecognizers>
+            
+            <VerticalStackLayout Spacing="5">
+                <Label 
+                    Text="Slaves to Darkness"
+                    HorizontalOptions="Center"
+                    FontSize="16"/>
+                <Image 
+                    Source="slaves_to_darkness_banner"
+                    MaximumHeightRequest="150"/>
+               
+                <Label 
+                    Text="Chaos army worshipping the old gods"/>
+            </VerticalStackLayout>
+        </Border>-->
+
+            <Button 
+            Text="Next >>"
+            Margin="5"/>
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>

@@ -55,7 +55,7 @@ namespace Age_of_Sigmar_app.ViewModels
             }
 
             ArmyList.Add(Army);
-            await Shell.Current.GoToAsync("../..", true);   //Title changes but doesn't show right view 'ArmyListView'
+            await Shell.Current.GoToAsync("..", true);   //Title changes but doesn't show right view 'ArmyListView'
         }
     }
 }
